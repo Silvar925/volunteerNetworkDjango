@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Events, Speaker, Organizers
+from .models import News, Events, Speaker, Organizers, Rating
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
@@ -23,3 +23,9 @@ class SpeakerAdmin(admin.ModelAdmin):
 class OrganizersAdmin(admin.ModelAdmin):
     list_display = ('name', 'bio', 'photo')
     search_fields = ['name', 'bio', 'photo']
+
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('fullname', 'university', 'countEvents', 'alpha', 'omega', 'points')
+    search_fields = ['fullname', 'university', 'countEvents', 'alpha', 'omega', 'points']

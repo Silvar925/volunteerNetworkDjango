@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def personalProfile(request):
+    return render(request, 'personalProfile/profile.html')
+
+def authentication(request):
+    return render(request, 'personalProfile/authentication.html')
