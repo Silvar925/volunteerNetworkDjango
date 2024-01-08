@@ -63,14 +63,3 @@ def personalAccount(request):
         return render(request, 'personalAccount.html', {'fullname': fullname})
     else:
         return render(request, 'authorization.html', {'error_message': 'Пожалуйста, войдите в систему для доступа к личному кабинету.'})
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = User(request.POST)
-#         if form.is_valid():
-#             form.save()
-
-#             return redirect('personalProfile')  # Redirect to a success page
-#     else:
-#         form = User()
-#     return render(request, 'authentication.html', {'form': form})
