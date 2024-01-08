@@ -57,6 +57,11 @@
     gap: 16px;
 }
 
+.container_authentication_dateEntry button {
+    height: 30px;
+    width: 200px;
+}
+
 .input_box {
     display: flex;
     flex-direction: column;

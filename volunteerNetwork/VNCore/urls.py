@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatternsVNCore = [
     path('', views.newsPage, name='news'),
@@ -16,5 +15,3 @@ urlpatternsVNCore = [
     path('listOrganizers', views.OrganizersAPIViews.as_view(), name='listOrganizers')
 ]
 
-if settings.DEBUG:
-    urlpatternsVNCore += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

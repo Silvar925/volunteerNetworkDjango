@@ -116,9 +116,20 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = ''
+MEDIA_URL = '/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Авторизация
+LOGIN_URL = '/authorization/' 
+LOGIN_REDIRECT_URL = '/personalAccount/'  
+
+#Сессия авторизации
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 1209600
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True

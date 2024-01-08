@@ -29,7 +29,8 @@
             </ul>
 
             <div class="myProfile">
-                <a href="{% url 'authentication'%}"><img src=" {% static 'VNCore/images/profile.svg' %}" alt="#" id="btnProfile"></a>
+                <a href="{% url 'authentication'%}"><img src=" {% static 'VNCore/images/profile.svg' %}" alt="#"
+                        id="btnProfile"></a>
 
                 <select name="" id="">
                     <option value="">Сообщения</option>
@@ -50,7 +51,7 @@
 
                 <div class="container_authentication_title_right">
                     <p>Еще не зарегестрированы ?</p>
-                    <a href="#" id = "btnRegistration">Регистрация</a>
+                    <a href="#" id="btnRegistration">Регистрация</a>
                 </div>
             </div>
 
@@ -59,26 +60,29 @@
             </div>
 
 
-            <div class="container_authentication_dateEntry">
+            <form action="{% url 'verification' %}" method="post" class="container_authentication_dateEntry">
+                {% csrf_token %}
+                
                 <div class="input_box">
                     <p>Электронная почта</p>
-                    <input type="text" placeholder="email@example.com">
+                    <input type="text" placeholder="email@example.com" name="email">
                 </div>
+
 
                 <div class="input_box">
                     <div class="input_box_title">
                         <p>Пароль</p>
                         <a href="#">Забыли пароль ?</a>
                     </div>
-                    <input type="text" placeholder="Введите пароль">
+
+                    <input type="text" placeholder="Введите пароль" name="password">
                 </div>
 
                 <div class="btnAuthentication_box">
                     <label for="option1"><input type="checkbox" id="option1" name="option1">Запомнить меня</label>
-                    <a href="#">Войти</a>
+                    <button type="submit" value="Отправить">Войти</button>
                 </div>
-
-            </div>
+            </form>
         </div>
 
         <div class="container_authentication_registration white_container_authentication hidden" id="registration_box">
@@ -89,7 +93,7 @@
 
                 <div class="container_authentication_title_right">
                     <p>Уже зарегистрированы?</p>
-                    <a href="#" id = "btnAuthorization">Войти</a>
+                    <a href="#" id="btnAuthorization">Войти</a>
                 </div>
             </div>
 
@@ -97,22 +101,49 @@
                 <h1>Регистрация</h1>
             </div>
 
-            <div class="container_authentication_dateEntry">
+            <form action="{% url 'register' %}" method="post" class="container_authentication_dateEntry">
+                {% csrf_token %}
+
                 <div class="input_box">
-                    <p>ФИО</p>
-                    <input type="text" placeholder="Введите ваше ФИО">
+                    <p>Фамилия</p>
+                    {{ form.first_name.label_tag }} <input type="text" name="{{ form.first_name.name }}"
+                        placeholder="Введите вашу Фамилию">
+                </div>
+
+                <div class="input_box">
+                    <p>Имя</p>
+                    {{ form.last_name.label_tag }} <input type="text" name="{{ form.last_name.name }}"
+                        placeholder="Введите ваше Имя">
+                </div>
+
+                <div class="input_box">
+                    <p>Отчество</p>
+                    {{ form.username.label_tag }} <input type="text" name="{{ form.username.name }}"
+                        placeholder="Введите ваше Отчество">
                 </div>
 
                 <div class="input_box">
                     <p>Электронная почта</p>
-                    <input type="text" placeholder="Введите ваш  E-mail">
+                    {{ form.email.label_tag }} <input type="text" name="{{ form.email.name }}"
+                        placeholder="Введите ваш E-mail">
                 </div>
 
                 <div class="input_box">
                     <p>Пароль</p>
-                    <input type="text" placeholder="Введите пароль">
+                    {{ form.password1.label_tag }} <input type="password" name="{{ form.password1.name }}"
+                        placeholder="Введите пароль">
                 </div>
-            </div>
+
+                <div class="input_box">
+                    <p>Повтор пороля</p>
+                    {{ form.password2.label_tag }} <input type="password" name="{{ form.password2.name }}"
+                        placeholder="Повторно введите пороль">
+                </div>
+
+                <div class="input_box">
+                    <button type="submit">Зарегистрироваться</button>
+                </div>
+            </form>
 
             <div class="registrationTips">
                 <ul>
@@ -131,10 +162,6 @@
                         <p>--Содержит заглавные и строчные буквы</p>
                     </li>
                 </ul>
-            </div>
-
-            <div class="btnAuthentication_box">
-                <a href="#">Создать аккаунт</a>
             </div>
 
         </div>
