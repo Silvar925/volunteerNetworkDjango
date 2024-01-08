@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib.auth import login as auth_login
@@ -63,14 +62,3 @@ def personalAccount(request):
         return render(request, 'personalAccount.html', {'fullname': fullname})
     else:
         return render(request, 'authorization.html', {'error_message': 'Пожалуйста, войдите в систему для доступа к личному кабинету.'})
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = User(request.POST)
-#         if form.is_valid():
-#             form.save()
-
-#             return redirect('personalProfile')  # Redirect to a success page
-#     else:
-#         form = User()
-#     return render(request, 'authentication.html', {'form': form})
