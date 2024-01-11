@@ -33,7 +33,6 @@ class Organizers(models.Model):
     photo = models.ImageField(upload_to='images/speakers/', verbose_name="Изображение спикера", null=True, blank=True)
     post = models.CharField(max_length=25, blank=True, null=True, verbose_name="Должность")
 
-
     class Meta:
         verbose_name = "Организатор"
         verbose_name_plural = "Организаторы" 

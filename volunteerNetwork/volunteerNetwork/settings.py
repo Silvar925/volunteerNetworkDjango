@@ -127,6 +127,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/authorization/' 
 LOGIN_REDIRECT_URL = '/personalAccount/'  
 
+AUTH_USER_MODEL = 'personalProfile.VNUser'
+
 #Сессия авторизации
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 1209600
